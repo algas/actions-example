@@ -43,7 +43,7 @@ const outputToFile = async (filePath, data) => {
   let browser;
   const host = 'https://google.com';
   const testPath = '/';
-  const reportFilePath = 'output/result.html'
+  const reportFilePath = process.argv[2]
 
   try {
     browser = await launchBrowser();
