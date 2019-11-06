@@ -40,16 +40,18 @@ const outputToFile = async (filePath, data) => {
 };
 
 (async (req, res) => {
+  let browser;
   const host = 'https://google.com';
   const testPath = '/';
+  const reportFilePath = 'output/result.html'
 
   try {
-    const browser = await launchBrowser();
+    browser = await launchBrowser();
     const {lhr, report} = await runTest(browser, host, testPath);
-    console.log(lhr);
+    // console.log(lhr);
     const html = report[1];
-    console.log(html);
-    // await outputToFile(reportFilePath, html);
+    // console.log(html);
+    await outputToFile(reportFilePath, html);
   } 
   catch (err) {
     if(err instanceof Error) {
