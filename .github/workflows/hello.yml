@@ -1,10 +1,14 @@
-name: Hello
+name: Puppeteer Lighthouse
 on: [push]
 
 jobs:
   build:
-    name: Greeting
+    name: Puppeteer
     runs-on: ubuntu-latest
     steps:
-      - name: Hello world
-        run: echo 'Hello world'
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - run: npm install
+      - run: npm test
