@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "main": "node index.js",
     "test": "echo 'test not implemented'"
   },
   "repository": {
