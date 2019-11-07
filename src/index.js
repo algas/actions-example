@@ -71,6 +71,11 @@ if (require.main === module) {
     testPath: process.argv[2],
     reportFilePath: config.reportFilePath
   };
-  console.log(`secret name = ${process.env.secret_name}`);
+  if (process.env.secret_name == 'nakedmolerat') {
+    console.log('matched');
+  }
+  else {
+    console.log('unmatched');
+  }
   main(options);
 }
