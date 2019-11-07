@@ -1,3 +1,3 @@
 module.exports = {
-  reportFilePath: 'output/report.html'
+  reportFilePath: '../output/report.html'
 };
