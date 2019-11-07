@@ -11,7 +11,9 @@ jobs:
         with:
           node-version: '10.x'
       - run: npm install
+        working-directory: ./src
       - run: npm run main output/report.html
+        working-directory: ./src
       - uses: actions/upload-artifact@master
         with:
           name: report file
