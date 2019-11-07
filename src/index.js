@@ -14,8 +14,8 @@ const launchBrowser = async () => {
 };
 
 
-const runTest = async (browser, host, path) => {
-  return await lighthouse(host+path, {
+const runTest = async (browser, testPath) => {
+  return await lighthouse(testPath, {
     port: (new URL(browser.wsEndpoint())).port,
     output: ['json','html'],
     disableDeviceEmulation: true,
@@ -39,15 +39,13 @@ const outputToFile = async (filePath, data) => {
   });
 };
 
-(async (req, res) => {
+const main = async (options) => {
   let browser;
-  const host = 'https://google.com';
-  const testPath = '/';
-  const reportFilePath = process.argv[2]
+  const {testPath, reportFilePath} = options;
 
   try {
     browser = await launchBrowser();
-    const {lhr, report} = await runTest(browser, host, testPath);
+    const {lhr, report} = await runTest(browser, testPath);
     // console.log(lhr);
     const html = report[1];
     // console.log(html);
@@ -65,4 +63,13 @@ const outputToFile = async (filePath, data) => {
       await browser.close();
     }
   }
-})();
+};
+
+if (require.main === module) {
+  const config = require('./config');
+  const options = {
+    testPath: process.argv[2],
+    reportFilePath: config.reportFilePath
+  };
+  main(options);
+}

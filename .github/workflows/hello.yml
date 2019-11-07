@@ -20,7 +20,7 @@ jobs:
       - run: npm install
         working-directory: ./src
       - name: run puppeteer
-        run: npm run main ../output/report.html
+        run: npm run main "https://google.com"
         working-directory: ./src
       - uses: actions/upload-artifact@master
         with:
