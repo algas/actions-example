@@ -22,6 +22,8 @@ jobs:
       - name: run puppeteer
         run: npm run main "https://google.com"
         working-directory: ./src
+        env:
+          secret_name: ${{ secrets.SECRET_NAME }}
       - uses: actions/upload-artifact@master
         with:
           name: report file

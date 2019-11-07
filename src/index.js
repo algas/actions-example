@@ -71,5 +71,6 @@ if (require.main === module) {
     testPath: process.argv[2],
     reportFilePath: config.reportFilePath
   };
+  console.log(`secret name = ${process.env.secret_name}`);
   main(options);
 }
