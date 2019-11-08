@@ -24,6 +24,7 @@ jobs:
         working-directory: ./src
         env:
           secret_name: ${{ secrets.SECRET_NAME }}
+          multiline_text: ${{ secrets.MULTILINE_TEXT }}
       - uses: actions/upload-artifact@master
         with:
           name: report file

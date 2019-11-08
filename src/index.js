@@ -71,11 +71,11 @@ if (require.main === module) {
     testPath: process.argv[2],
     reportFilePath: config.reportFilePath
   };
-  if (process.env.secret_name == 'nakedmolerat') {
+  if(process.env.multiline_text == 'foo\nbar'){
     console.log('matched');
   }
   else {
     console.log('unmatched');
   }
-  main(options);
+  // main(options);
 }
